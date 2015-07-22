@@ -1,0 +1,24 @@
+<template name="sfNewpost">
+
+	{{#ionView}}
+		{{#ionContent}}
+<!-- 	        {{> quickForm collection="SofitPosts" doc=post id="new-form" type="insert" fields="title,location,actionType,desc, published" buttonContent="Submit"}}  -->
+	
+
+			{{#autoForm id="new-post" type="insert" collection="SofitPosts" autosave=autoSaveMode}}
+				{{> afQuickField name="title"}}
+				{{> afQuickField name="location"}}
+				{{> afQuickField name="actionType"}}
+				{{> afQuickField name="img"}}
+				{{#unless autoSaveMode}}
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Submit</button>
+					<button type="reset" class="btn btn-default" disabled="{{disableButtons}}">Reset Form</button>
+				</div>
+				{{/unless}}
+			{{/autoForm}}
+
+	    {{/ionContent}}
+	{{/ionView}}
+
+</template>
