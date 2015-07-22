@@ -1,0 +1,21 @@
+<template name="userLogin">
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Sign In</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#if currentUser}}
+        <div class="padding">
+          <button class="button button-positive button-block" data-action="logout">Log Out</button>
+        </div>
+      {{else}}
+        {{> atForm}}
+      {{/if}}
+      <a href="{{pathFor 'tabsOne'}}" class="button button-stable">{{> ionIcon icon="ios-log-in"}} Log In</a>
+    {{/ionContent}}
+  {{/ionView}}
+</template>
