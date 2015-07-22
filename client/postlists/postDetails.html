@@ -1,0 +1,44 @@
+<template name="postDetails">
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Lists</h1>
+  {{/contentFor}}
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" onclick="alert('TODO')">Edit</button>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#ionList}}
+
+
+          {{#ionItem buttonRight=true avatar=true}}
+
+            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+            <h2>John Smith</h2>
+            <p>
+              Running Diary 07/20/2015
+            </p>
+            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+
+
+          {{/ionItem}}
+
+          {{#ionItem buttonRight=true avatar=true}}
+
+            <img src="https://randomuser.me/api/portraits/thumb/women/27.jpg">
+            <h2>Jenny Meyers</h2>
+            <p>
+              Keep up good work!
+            </p>
+            <img src="https://randomuser.me/api/portraits/thumb/women/27.jpg">
+
+
+          {{/ionItem}}
+
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>
