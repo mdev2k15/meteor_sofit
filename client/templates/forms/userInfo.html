@@ -1,0 +1,16 @@
+<template name="userInfo">
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">User Info</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div>Name: {{firstName}} {{lastName}}</div>
+      <div>Email: {{email}}</div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>
