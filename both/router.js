@@ -13,6 +13,7 @@ Meteor.startup(function () {
 
 Router.map(function() {
   this.route('tabs.one', {path: '/'});
+  // this.route('userLogin', {path: '/'});
   this.route('actionSheet');
   this.route('backdrop');
   this.route('forms', {
