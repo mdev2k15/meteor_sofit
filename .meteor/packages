@@ -19,3 +19,7 @@ meteoric:ionicons-sass
 meteoric:ionic
 meteoric:autoform-ionic
 useraccounts:ionic
+cfs:standard-packages
+cfs:gridfs
+aldeed:simple-schema
+yogiben:autoform-file

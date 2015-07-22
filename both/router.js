@@ -24,6 +24,7 @@ Router.map(function() {
   });
   this.route('headersFooters');
   this.route('lists');
+  this.route('postLists');
   this.route('postDetails');
   this.route('newPost');
   this.route('loading');
