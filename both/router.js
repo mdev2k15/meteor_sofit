@@ -26,7 +26,7 @@ Router.map(function() {
   this.route('headersFooters');
   this.route('lists');
   this.route('postLists');
-  this.route('postDetails');
+  //this.route('postDetails');
   this.route('newPost');
   this.route('loading');
   this.route('modal');
@@ -43,4 +43,9 @@ Router.map(function() {
   this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
   this.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
   this.route('userAccounts');
+});
+
+Router.route('/posts/:_id', {
+  name: 'postDetails',
+  data: function() { return Lmingposts.findOne(this.params._id); }
 });

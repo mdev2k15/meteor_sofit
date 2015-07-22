@@ -9,7 +9,17 @@
 
   {{#ionView}}
     {{#ionContent}}
-      {{> quickForm collection="Posts" doc=post id="edit-form" type="update" buttonContent="Save Post"}}
-    {{/ionContent}}
+
+{{#autoForm collection="Lmingposts" doc=post id="new-lmingpost" type="insert" buttonContent="Save Post"}}
+  {{> afQuickField name="title"}}
+  {{> afQuickField name="body"}}
+
+  <div class="button-bar">
+    <button type="submit" class="button icon ion-android-send button-positive">Submit</button>
+  </div>
+{{/autoForm}}
+
+
+   {{/ionContent}}
   {{/ionView}}
 </template>

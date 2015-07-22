@@ -1,9 +1,6 @@
 Template.postLists.helpers({
-  times: function () {
-    var times = [];
-    _(20).times(function(n){
-      times.push(n);
-    });
-    return times;
-  }
+
+  lmingposts: function () {
+      return Lmingposts.find({}, { sort: { title: 1 } });
+    },
 });

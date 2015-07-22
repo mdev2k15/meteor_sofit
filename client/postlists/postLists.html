@@ -13,17 +13,21 @@
     {{#ionContent}}
       {{#ionList}}
 
-        {{#each times}}
+        {{#each lmingposts}}
 
           {{#ionItem  path="postDetails" iconLeft=true iconRight=true}}
-
+          
             <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
-            <h2>My running diary title</h2>
-            <p>
-              post content
-            </p>
-            {{> ionIcon icon="ios-arrow-right"}}
             
+            <h2>{{title}}</h2>
+
+            
+            <p>
+             <a href="{{posts/_id}}">  {{body}} </a>
+            </p>
+             
+            {{> ionIcon icon="ios-arrow-right"}}
+         
           {{/ionItem}}
 
         {{/each}}
