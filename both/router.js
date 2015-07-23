@@ -53,12 +53,6 @@ Router.map(function() {
     data: function() { return SofitUsers.findOne(this.params._id); }
   });
 
-  this.route("profile", {
-    waitOn: function() {
-      return [Meteor.subscribe('images')];
-    }
-  });
-
   Router.route('/posts/:_id', {
     name: 'postDetails',
     data: function() { return Lmingposts.findOne(this.params._id); }
