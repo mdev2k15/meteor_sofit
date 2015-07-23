@@ -16,5 +16,15 @@ Lmingposts.attachSchema(new SimpleSchema({
       'label-type': 'stacked'
     }
   },
+  picture: {
+    type: String,
+    autoform: {
+      afFieldInput: {
+        type: 'fileUpload',
+        collection: 'Images',
+        label: 'Choose file'
+      }
+    }
+  },
 }));
 
