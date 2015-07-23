@@ -1,6 +1,6 @@
 
-SofitImg = new FS.Collection("images", {
-  stores: [new FS.Store.GridFS("images", {})]
+SofitImg = new FS.Collection("SofitImg", {
+  stores: [new FS.Store.GridFS("SofitImg", {})]
 });
 
 SofitUsers = new Mongo.Collection("SofitUsers");
