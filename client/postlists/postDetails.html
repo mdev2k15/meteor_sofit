@@ -1,39 +1,39 @@
 <template name="postDetails">
   {{#contentFor "headerButtonLeft"}}
-    {{>ionNavBackButton path="index"}}
+    {{>ionNavBackButton path="/sposts/{{_id}}"}}
   {{/contentFor}}
   {{#contentFor "headerTitle"}}
-    <h1 class="title">Lists</h1>
-  {{/contentFor}}
-  {{#contentFor "headerButtonRight"}}
-    <button class="button button-clear" onclick="alert('TODO')">Edit</button>
+    <h1 class="title">{{title}}</h1>
   {{/contentFor}}
 
-  {{#ionView}}
+ {{#ionView}}
     {{#ionContent}}
-      {{#ionList}}
+    
+{{#autoForm collection="Lmingposts" id="new-lmingpost" doc=this type="update" buttonContent="Update Post"}}
+  {{> afQuickField name="title"}}
+  {{> afQuickField name="body"}}
+  {{> afQuickField name="picture"}}
+  <div class="button-bar">
+    <button type="submit" class="button icon ion-android-send button-positive">Update</button>
+  </div>
+{{/autoForm}}
 
 
+ 
+ <!-- 
           {{#ionItem buttonRight=true avatar=true}}
 
-            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
-            John Smith
-            <h2>{{title}}</h2>
+            {{#with attachImgSrc}}
+              <img src="{{this.url}}" alt="{{this.name}}">
+            {{/with}}
+
             <p>
               
               {{body}}
             </p>
-            {{#with attachImgSrc}}
-            <img src="{{this.url}}" alt="{{this.name}}" width=240>
-            {{/with}}
-            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
-         
 
-
-          {{/ionItem}}
-
-
-      {{/ionList}}
+          {{/ionItem}} -->
     {{/ionContent}}
+   {{> _tabs}} 
   {{/ionView}}
 </template>

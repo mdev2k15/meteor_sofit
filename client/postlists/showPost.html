@@ -1,0 +1,33 @@
+<template name="showPost">
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="tabsOne"}} 
+  {{/contentFor}}
+  {{#contentFor "headerButtonRight"}}
+    {{>ionNavForwardButton path="{{dposts/_id}}" }}
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">{{title}}</h1>
+  {{/contentFor}}
+  {{#contentFor "headerButtonRight"}}
+    <!-- <button class="button button-clear" data-action="editPost">Edit</button> -->
+    <button class="button button-clear" onclick="location.href = '/dposts/{{_id}}'">Edit</button>
+  {{/contentFor}}
+
+ {{#ionView}}
+    {{#ionContent}}
+            <div>
+            <b><i> What Happened: </i></b>
+            </div>
+            {{#with attachImgSrc}}
+              <img src="{{this.url}}" alt="{{this.name}}">
+            {{/with}}
+
+            <div>
+              <b><i>Details:</i></b>
+            </div>
+            {{body}}
+
+    {{/ionContent}}
+  {{> _tabs}}
+  {{/ionView}}
+</template>

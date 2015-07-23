@@ -1,8 +1,7 @@
 <template name="tabsOne">
-  {{#ionView}}
-    {{> _tabsHeader}}
-
-    {{#ionContent class="padding"}}
+	{{#contentFor "headerButtonRight"}}
+    	<button class="button button-positive" onclick="location.href = '/newPost'"> NewPost </button>
+  	{{/contentFor}}
     <div>
     {{#if currentUser}}
     	Welcome back, 
@@ -11,6 +10,14 @@
     {{/if}}
     {{> loginButtons}}
     </div>
+
+  {{#ionView}}
+    {{> _tabsHeader}}
+
+    {{#ionContent class="padding"}}
+
+    
+
     <div class="bar bar-header item-input-inset">
   		<label class="item-input-wrapper">
     	<i class="icon ion-ios-search placeholder-icon"></i>
@@ -26,45 +33,13 @@
   		<button class="button button-clear"> Manual </button>
 	</div> -->
 	<div>
-		<a href = '/sfNewUser'>
-		<button class="ion-plus-circled"></button>  Add a new action!
+		<a href = '/newPost'>
+		<!-- <button class="ion-plus-circled"></button>  -->
+		 Add a new action!
 		</a>
 	</div>
 
-
-<div class="list">
-
-    <a class="item item-thumbnail-left" href="#">
-      <img src="https://randomuser.me/api/portraits/thumb/men/39.jpg">
-      <h2>10-mile Run</h2>
-      <p>by Tom Lee</p>
-    </a>
-
-    <a class="item item-thumbnail-left" href="#">
-      <img src="https://randomuser.me/api/portraits/thumb/women/38.jpg">
-      <h2>Morning Yoga</h2>
-      <p>by Alice Wang</p>
-    </a>
-
-    <a class="item item-thumbnail-left" href="#">
-      <img src="https://randomuser.me/api/portraits/thumb/men/49.jpg">
-      <h2>Looking for a fitness partner</h2>
-      <p>by Alex Zack</p>
-    </a>
-
-    <a class="item item-thumbnail-left" href="#">
-      <img src="https://randomuser.me/api/portraits/thumb/men/50.jpg">
-      <h2>Meet up for basketball </h2>
-      <p>by Bob Wexler</p>
-    </a>
-
-    <a class="item item-thumbnail-left" href="#">
-      <img src="https://randomuser.me/api/portraits/thumb/women/51.jpg">
-      <h2>Saturday Tennis Play</h2>
-      <p>by Julia Fox </p>
-    </a>
-
-</div>
+	{{> postLists}}
 
     {{/ionContent}}
 

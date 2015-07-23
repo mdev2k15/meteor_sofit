@@ -3,11 +3,12 @@
     {{>ionNavBackButton path="index"}}
   {{/contentFor}}
   {{#contentFor "headerTitle"}}
-    <h1 class="title">Lists</h1>
+    <h1 class="title">List</h1>
   {{/contentFor}}
-  {{#contentFor "headerButtonRight"}}
-    <button class="button button-positive" onclick="alert('TODO')">New Post</button>
-  {{/contentFor}}
+  <!-- {{#contentFor "headerButtonRight"}}
+    
+    <button class="button button-positive" onclick="location.href = '/newPost'"> New Post </button>
+  {{/contentFor}} -->
 
   {{#ionView}}
     {{#ionContent}}
@@ -15,15 +16,17 @@
 
         {{#each lmingposts}}
 
-          {{#ionItem  path="postDetails" iconLeft=true iconRight=true}}
-          
-            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
-            
+          {{#ionItem path='showPost' iconLeft=true iconRight=true}}
+
+            {{#with attachImgSrc}}
+            <img src="{{this.url}}" alt="{{this.name}}" width=64  >
+            {{/with}}
+
             <h2>{{title}}</h2>
 
             
             <p>
-             <a href="{{posts/_id}}">  {{body}} </a>
+             <a href="{{sposts/_id}}">  {{body}} </a>
             </p>
              
             {{> ionIcon icon="ios-arrow-right"}}

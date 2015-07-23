@@ -12,7 +12,7 @@ Meteor.startup(function () {
 });
 
 Router.map(function() {
-  this.route('tabs.one', {path: '/'});
+  this.route('tabs.one', {path: '/', layoutTemplate: 'tabsLayout'});
   // this.route('sfNewUser', {path: '/'});
   this.route('actionSheet');
   this.route('backdrop');
@@ -25,8 +25,6 @@ Router.map(function() {
   });
   this.route('headersFooters');
   this.route('lists');
-  this.route('postLists');
-  //this.route('postDetails');
   this.route('newPost');
   this.route('loading');
   this.route('modal');
@@ -50,12 +48,20 @@ Router.map(function() {
 
   this.route('/users/:_id', {
     name: 'userInfo',
-    data: function() { return SofitUsers.findOne(this.params._id); }
+    data: function() { return SofitUsers.findOne(this.params._id); },
+    //layoutTemplate: 'tabsLayout'
+});
+
+  Router.route('/dposts/:_id', {
+    name: 'postDetails',
+    data: function() { return Lmingposts.findOne(this.params._id); },
+    //layoutTemplate: 'tabsLayout'
   });
 
-  Router.route('/posts/:_id', {
-    name: 'postDetails',
-    data: function() { return Lmingposts.findOne(this.params._id); }
+  Router.route('/sposts/:_id', {
+    name: 'showPost',
+    data: function() { return Lmingposts.findOne(this.params._id); },
+    // ßlayoutTemplate: 'tabsLayout'
   });
 
 });
