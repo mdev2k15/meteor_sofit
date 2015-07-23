@@ -1,7 +1,9 @@
 <template name="tabsOne">
-	{{#contentFor "headerButtonRight"}}
+  {{#ionView}}
+    {{> _tabsHeader}}
+	<!-- {{#contentFor "headerButtonRight"}}
     	<button class="button button-positive" onclick="location.href = '/newPost'"> NewPost </button>
-  	{{/contentFor}}
+  	{{/contentFor}} -->
     <div>
     {{#if currentUser}}
     	Welcome back, 
@@ -10,10 +12,6 @@
     {{/if}}
     {{> loginButtons}}
     </div>
-
-  {{#ionView}}
-    {{> _tabsHeader}}
-
     {{#ionContent class="padding"}}
 
     
@@ -21,9 +19,9 @@
     <div class="bar bar-header item-input-inset">
   		<label class="item-input-wrapper">
     	<i class="icon ion-ios-search placeholder-icon"></i>
-    	<input type="search" placeholder="Search">
+    	<input type="search" placeholder="Search Post">
   		</label>
-  		<button class="button button-clear"> Cancel </button>
+  		<button class="button button-clear" onclick="location.href = '/newPost'"> NewPost </button>
   	</div>
   	<!-- <div>
   		<label class="item-input-wrapper">
