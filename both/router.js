@@ -59,4 +59,10 @@ Router.map(function() {
     }
   });
 
+Router.route('/posts/:_id', {
+  name: 'postDetails',
+  data: function() { return Lmingposts.findOne(this.params._id); }
+});
+
+
 });

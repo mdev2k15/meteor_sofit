@@ -23,8 +23,11 @@
               
               {{body}}
             </p>
-
+            {{#with attachImgSrc}}
+            <img src="{{this.url}}" alt="{{this.name}}" width=240>
+            {{/with}}
             <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+         
 
 
           {{/ionItem}}
