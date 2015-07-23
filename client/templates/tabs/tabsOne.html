@@ -3,6 +3,14 @@
     {{> _tabsHeader}}
 
     {{#ionContent class="padding"}}
+    <div>
+    {{#if currentUser}}
+    	Welcome back, 
+    {{else}}
+    	Please 
+    {{/if}}
+    {{> loginButtons}}
+    </div>
     <div class="bar bar-header item-input-inset">
   		<label class="item-input-wrapper">
     	<i class="icon ion-ios-search placeholder-icon"></i>
@@ -10,12 +18,17 @@
   		</label>
   		<button class="button button-clear"> Cancel </button>
   	</div>
-  	<div>
+  	<!-- <div>
   		<label class="item-input-wrapper">
-    	<i class="icon ion-ios-location placeholder-icon"></i>
-    	<input type="search" placeholder="Loc">
+    	<i class="icon ion-ios-search placeholder-icon"></i>
+    	<input type="search" placeholder="location">
   		</label>
   		<button class="button button-clear"> Manual </button>
+	</div> -->
+	<div>
+		<a href = '/sfNewUser'>
+		<button class="ion-plus-circled"></button>  Add a new action!
+		</a>
 	</div>
 
 

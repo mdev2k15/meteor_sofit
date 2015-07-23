@@ -11,19 +11,24 @@
 
   {{#ionView}}
     {{#ionContent}}
+
       {{#ionList}}
 
-        {{#each times}}
+        {{#each sfContacts}}
 
           {{#ionItem buttonRight=true avatar=true}}
-
-            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
-            <h2>John Smith</h2>
+            <!-- {{#ionItem path = " {{_id}" }} -->
+            <a href='/users/{{_id}}'>
+            {{#with attachImgSrc}}
+            <img src="{{this.url}}" alt="{{this.name}}" width=60>
+            {{/with}}
+            <!-- <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg"> -->
+            </a>
+            <h2>{{firstName}} {{lastName}}</h2>
             <p>
-              (555) 555-1212
+              {{email}}
             </p>
             <button class="button button-positive">{{> ionIcon icon="ios-telephone"}}</button>
-
           {{/ionItem}}
 
         {{/each}}

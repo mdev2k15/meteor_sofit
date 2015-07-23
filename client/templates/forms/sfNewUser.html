@@ -2,19 +2,18 @@
 
 	{{#ionView}}
 		{{#ionContent}}
-	        {{> quickForm collection="SofitUsers" doc=post id="new-user" type="insert" fields="firstName,lastName,email,selfIntro" buttonContent="Submit"}} 
+	        {{> quickForm collection="SofitUsers" doc=post id="new-user" type="insert" fields="firstName,lastName,gender, email,portrait, selfIntro" buttonContent="Submit"}} 
 	
 
-			<!-- {{#autoForm id="new-user" type="insert" collection="SofitUser" autosave=autoSaveMode}}
+<!-- 			{{#autoForm id="new-user" type="insert" collection="SofitUsers"}}
 				{{> afQuickField name="firstName"}}
 				{{> afQuickField name="lastName"}}
-				{{> afQuickField name="fMale"}}
-				{{> afQuickField name="img"}}
+				{{> afFormGroup name="gender" type="select-radio-inline" options=optionsHelper}}
+  				
 				{{#unless autoSaveMode}}
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Submit</button>
-					<button type="reset" class="btn btn-default" disabled="{{disableButtons}}">Reset Form</button>
-				</div>
+    			<button type="submit" class="btn btn-primary">Submit</button>
+  				</div>
 				{{/unless}}
 			{{/autoForm}} -->
 

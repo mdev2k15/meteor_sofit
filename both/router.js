@@ -13,7 +13,7 @@ Meteor.startup(function () {
 
 Router.map(function() {
   this.route('tabs.one', {path: '/'});
-  // this.route('userLogin', {path: '/'});
+  // this.route('sfNewUser', {path: '/'});
   this.route('actionSheet');
   this.route('backdrop');
   this.route('forms', {
@@ -43,9 +43,20 @@ Router.map(function() {
   this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
   this.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
   this.route('userAccounts');
-});
 
-Router.route('/posts/:_id', {
-  name: 'postDetails',
-  data: function() { return Lmingposts.findOne(this.params._id); }
+  this.route('sfNewpost');
+  this.route('sfNewUser');
+  this.route('userLogin');
+
+  this.route('/users/:_id', {
+    name: 'userInfo',
+    data: function() { return SofitUsers.findOne(this.params._id); }
+  });
+
+  this.route("profile", {
+    waitOn: function() {
+      return [Meteor.subscribe('images')];
+    }
+  });
+
 });

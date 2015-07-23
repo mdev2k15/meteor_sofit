@@ -1,4 +1,8 @@
 
+SofitImg = new FS.Collection("images", {
+  stores: [new FS.Store.GridFS("images", {})]
+});
+
 SofitUsers = new Mongo.Collection("SofitUsers");
 SofitUsers.attachSchema(new SimpleSchema({
   firstName: {
@@ -15,25 +19,12 @@ SofitUsers.attachSchema(new SimpleSchema({
       'label-type': 'stacked'
     }
   },
-  fMale: {
-  	type: Boolean,
-    optional: true,
-    autoform: {
-      type: "select-radio-inline",
-      options: function () {
-        return [
-          {label: "Male", value: 1},
-          {label: "Female", value: 0},
-        ];
-      }
-    }
-  },
 
   gender: {
     type: String,
     optional: true,
     autoform: {
-      type: "select-multiple",
+      type: "select-radio-inline",
       options: function () {
         return [
           {label: "Male", value: 'Male'},
@@ -59,6 +50,17 @@ SofitUsers.attachSchema(new SimpleSchema({
     	afFieldInput: {
         	type: "textarea"
       	}
+    }
+  },
+
+   portrait: {
+    type: String,
+    autoform: {
+      afFieldInput: {
+        type: 'fileUpload',
+        collection: 'SofitImg',
+        label: 'Choose file'
+      }
     }
   },
 }));
@@ -103,15 +105,17 @@ SofitPosts.attachSchema(new SimpleSchema({
       'label-type': 'stacked'
     }
   },
-  img: {
+  picture: {
     type: String,
-    max: 500,
-    optional: true,
     autoform: {
-      rows: 10,
-      'label-type': 'stacked'
+      afFieldInput: {
+        type: 'fileUpload',
+        collection: 'SofitImg',
+        label: 'Choose file'
+      }
     }
   },
+
   desc: {
     type: String,
     max: 500,
@@ -145,3 +149,5 @@ SofitPosts.attachSchema(new SimpleSchema({
     }
   }
 }));
+
+

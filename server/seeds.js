@@ -7,7 +7,7 @@ Meteor.startup(function () {
   //     published: Fake.fromArray([true, false])
   //   });
   // }
-if (sofit_users.find({}).count() === 0) {
+if (SofitUsers.find({}).count() === 0) {
     // _(posts).each(function (stock) {
       // sofit_users.insert({
       //   title: 'Title1',
@@ -17,7 +17,7 @@ if (sofit_users.find({}).count() === 0) {
     // });
   }
 
-if (sofit_msgs.find({}).count() === 0) {
+if (SofitMsgs.find({}).count() === 0) {
     // _(posts).each(function (stock) {
       // sofit_users.insert({
       //   title: 'Title1',
@@ -27,7 +27,7 @@ if (sofit_msgs.find({}).count() === 0) {
     // });
   }
 
-if (sofit_posts.find({}).count() === 0) {
+if (SofitPosts.find({}).count() === 0) {
 // _(posts).each(function (stock) {
   // sofit_users.insert({
   //   title: 'Title1',
