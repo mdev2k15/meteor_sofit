@@ -1,9 +1,14 @@
 <template name="tabsFour">
-  {{> _tabsHeader}}
 
-  {{#ionContent class="padding"}}
-    {{> forms }}
-  {{/ionContent}}
+	{{#ionView}}
+  		{{#ionContent class="padding"}}
 
-  {{> _tabs}}
+  		{{#if currentUser}}
+    		{{> forms }}
+    	{{else}}
+    		{{> atForm }}
+    	{{/if}}
+    		
+  		{{/ionContent}}
+	{{/ionView}}
 </template>

@@ -10,6 +10,9 @@
   {{#ionView}}
     {{#ionContent}}
       {{> quickForm collection="SofitUsers" doc=post id="edit-form" type="update" buttonContent="Update Profile"}}
+      <div class="padding">
+        <button class="button button-positive button-block" data-action="logout">Log Out</button>
+      </div>
     {{/ionContent}}
   {{/ionView}}
 </template>

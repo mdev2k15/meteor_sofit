@@ -1,10 +1,10 @@
 <template name="postLists">
-  {{#contentFor "headerButtonLeft"}}
+<!--   {{#contentFor "headerButtonLeft"}}
     {{>ionNavBackButton path="index"}}
-  {{/contentFor}}
-  {{#contentFor "headerTitle"}}
-    <h1 class="title">List</h1>
-  {{/contentFor}}
+  {{/contentFor}} -->
+  <!-- {{#contentFor "headerTitle"}}
+    <h1 class="title">SoFit Posts</h1>
+  {{/contentFor}} -->
   <!-- {{#contentFor "headerButtonRight"}}
     
     <button class="button button-positive" onclick="location.href = '/newPost'"> New Post </button>
@@ -14,7 +14,7 @@
     {{#ionContent}}
       {{#ionList}}
 
-        {{#each lmingposts}}
+        {{#each postLists}}
 
           {{#ionItem path='showPost' iconLeft=true iconRight=true}}
 

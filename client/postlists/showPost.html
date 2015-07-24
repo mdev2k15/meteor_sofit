@@ -1,33 +1,46 @@
 <template name="showPost">
-  {{#contentFor "headerButtonLeft"}}
-    {{>ionNavBackButton path="tabsOne"}} 
-  {{/contentFor}}
-  {{#contentFor "headerButtonRight"}}
-    {{>ionNavForwardButton path="{{dposts/_id}}" }}
-  {{/contentFor}}
-  {{#contentFor "headerTitle"}}
-    <h1 class="title">{{title}}</h1>
-  {{/contentFor}}
-  {{#contentFor "headerButtonRight"}}
-    <!-- <button class="button button-clear" data-action="editPost">Edit</button> -->
-    <button class="button button-clear" onclick="location.href = '/dposts/{{_id}}'">Edit</button>
-  {{/contentFor}}
+  
+  {{#with readPost}}
+    {{#contentFor "headerButtonLeft"}}
+      {{>ionNavBackButton path="tabsOne"}} 
+    {{/contentFor}}
+    {{#contentFor "headerTitle"}}
+      <h1 class="title">{{postTitle}}</h1>
+    {{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+      <button class="button button-clear" data-action="editPost">Edit</button>
+      <!-- <button class="button button-clear" onclick="location.href = '/dposts/{{_id}}'">Edit</button> -->
+    {{/contentFor}}
 
- {{#ionView}}
-    {{#ionContent}}
-            <div>
-            <b><i> What Happened: </i></b>
-            </div>
-            {{#with attachImgSrc}}
-              <img src="{{this.url}}" alt="{{this.name}}">
-            {{/with}}
+   {{#ionView}}
+      {{#ionContent}}
 
-            <div>
-              <b><i>Details:</i></b>
-            </div>
-            {{body}}
+        {{#if isEditMode}}
+          {{#autoForm collection="Lmingposts" id="editCurPost" doc=this type="update" buttonContent="Update Post"}}
+            {{> afQuickField name="title"}}
+            {{> afQuickField name="body"}}
+            {{> afQuickField name="picture"}}
+          <div class="button-bar">
+            <button type="submit" class="button icon ion-android-send button-positive">Update</button>
+          </div>
+          {{/autoForm}}      
+        {{else}}
+          <div>
+              <b><i> What Happened: </i></b>
+              </div>
+              {{#with attachImgSrc}}
+                <img src="{{this.url}}" alt="{{this.name}}">
+              {{/with}}
 
-    {{/ionContent}}
-  {{> _tabs}}
-  {{/ionView}}
+              <div>
+                <b><i>Details:</i></b>
+              </div>
+              {{body}}
+
+        {{/if}}
+      {{/ionContent}}
+      {{> _tabs}}
+
+    {{/ionView}}
+  {{/with}}
 </template>

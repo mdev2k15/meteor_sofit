@@ -18,7 +18,7 @@ AutoForm.hooks({
       console.log(result);
       console.log(template);
       /*Router.go('post.show', {_id: 1}, {query: 'q=s', hash: 'hashFrag'});*/
-      Router.go('postLists', {_id: result});
+      Router.go('/', {_id: result});
     },
 
     onError: function(operation, error, template) {

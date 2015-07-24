@@ -1,9 +1,9 @@
 <template name="tabsTwo">
-  {{> _tabsHeader}}
+  {{#ionView}}
+	
+	{{#ionContent class="padding"}}
+		<h1>TODO: Message list</h1>
+	{{/ionContent}}
 
-  {{#ionContent class="padding"}}
-  <h1>TODO: Message list</h1>
-  {{/ionContent}}
-
-  {{> _tabs}}
+	{{/ionView}}
 </template>

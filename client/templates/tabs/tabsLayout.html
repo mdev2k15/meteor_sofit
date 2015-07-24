@@ -1,14 +1,8 @@
 <template name="tabsLayout">
   {{#ionBody}}
+  <!-- {{> ionNavBar}} -->
+  {{> _tabsHeader}}
     {{#ionView}}
-    <div>
-    {{#if currentUser}}
-    	Welcome back, 
-    {{else}}
-    	Please 
-    {{/if}}
-    {{> loginButtons}}
-    </div>
       {{> yield}}
       {{> _tabs}}
     {{/ionView}}

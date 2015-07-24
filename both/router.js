@@ -12,7 +12,47 @@ Meteor.startup(function () {
 });
 
 Router.map(function() {
-  this.route('tabs.one', {path: '/', layoutTemplate: 'tabsLayout'});
+  this.route('tabs.one', {
+      layoutTemplate: 'tabsLayout',
+      path: '/tabs/one', // layoutTemplate: 'tabsLayout',
+      waitOn: function () {
+        // return one handle, a function, or an array
+        
+          Meteor.subscribe('images');
+          Meteor.subscribe('allposts');
+
+          return [];
+      },
+      data: function () {
+        return {
+          postLists: Lmingposts.find()
+        };
+      },
+      action: function () {
+        this.render('tabsOne');
+      }
+    });
+
+  this.route('/', {
+    layoutTemplate: 'tabsLayout',
+    waitOn: function () {
+      // return one handle, a function, or an array
+      
+        Meteor.subscribe('images');
+        Meteor.subscribe('allposts');
+
+        return [];
+    },
+    data: function () {
+      return {
+        postLists: Lmingposts.find()
+      };
+    },
+    action: function () {
+      this.render('tabsOne');
+    }
+  });
+
   // this.route('sfNewUser', {path: '/'});
   this.route('actionSheet');
   this.route('backdrop');
@@ -54,14 +94,42 @@ Router.map(function() {
 
   Router.route('/dposts/:_id', {
     name: 'postDetails',
-    data: function() { return Lmingposts.findOne(this.params._id); },
-    //layoutTemplate: 'tabsLayout'
+    waitOn: function () {
+      // return one handle, a function, or an array
+      
+        Meteor.subscribe('images');
+        Meteor.subscribe('onepost', this.params._id);
+
+        return [];
+    },
+    data: function () {
+      return {
+        writePost: Lmingposts.findOne(this.params._id)
+      };
+    },
+    // action: function () {
+    //   this.render('postDetails');
+    // }
   });
 
   Router.route('/sposts/:_id', {
     name: 'showPost',
-    data: function() { return Lmingposts.findOne(this.params._id); },
-    // ßlayoutTemplate: 'tabsLayout'
+    waitOn: function () {
+      // return one handle, a function, or an array
+      
+        Meteor.subscribe('images');
+        Meteor.subscribe('onepost', this.params._id);
+
+        return [];
+    },
+    data: function () {
+      return {
+        readPost: Lmingposts.findOne(this.params._id)
+      };
+    },
+    action: function () {
+      this.render('showPost');
+    }
   });
 
 });

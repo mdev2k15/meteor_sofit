@@ -1,12 +1,16 @@
 Template.postLists.helpers({
 
-  lmingposts: function () {
-      return Lmingposts.find({}, { sort: { title: 1 } });
-    },
+  // lmingposts: function () {
+  //     return Lmingposts.find({}, { sort: { title: 1 } });
+  //   },
 
    attachImgSrc: function () {
         var id = this.picture;
-        console.log(id);
+        // console.log(id);
         return Images.findOne({_id: id});
     },
+});
+
+Template.postLists.onRendered(function () {
+	// console.log(this);
 });
