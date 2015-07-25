@@ -1,10 +1,13 @@
 <template name="tabsFour">
-
+	{{#contentFor "headerTitle"}}
+    	<h1 class="title">SoFit - Profile</h1>
+  	{{/contentFor}}
+	
 	{{#ionView}}
   		{{#ionContent class="padding"}}
 
   		{{#if currentUser}}
-    		{{> forms }}
+    		{{gotoProfile}}
     	{{else}}
     		{{> atForm }}
     	{{/if}}

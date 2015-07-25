@@ -1,18 +1,24 @@
 <template name="showPost">
-  
   {{#with readPost}}
-    {{#contentFor "headerButtonLeft"}}
+
+<!--   {{#contentFor "headerButtonLeft"}}
       {{>ionNavBackButton path="tabsOne"}} 
-    {{/contentFor}}
-    {{#contentFor "headerTitle"}}
+    {{/contentFor}} -->
+<!--     {{#contentFor "headerTitle"}}
       <h1 class="title">{{postTitle}}</h1>
-    {{/contentFor}}
+    {{/contentFor}} -->
+
     {{#contentFor "headerButtonRight"}}
-      <button class="button button-clear" data-action="editPost">Edit</button>
-      <!-- <button class="button button-clear" onclick="location.href = '/dposts/{{_id}}'">Edit</button> -->
+      {{#if isVisitor}}
+      {{else}}
+        <button class="button pull-right button-clear" data-action="editPost">  <!--  button-positive  -->
+        <!-- {{> ionIcon icon='ion-edit'}} -->
+        Edit
+        </button>
+      {{/if}}
     {{/contentFor}}
 
-   {{#ionView}}
+  {{#ionView}}
       {{#ionContent}}
 
         {{#if isEditMode}}
@@ -40,7 +46,6 @@
         {{/if}}
       {{/ionContent}}
       {{> _tabs}}
-
     {{/ionView}}
-  {{/with}}
+ {{/with}}
 </template>

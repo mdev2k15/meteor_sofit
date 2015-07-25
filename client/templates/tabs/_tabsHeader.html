@@ -1,22 +1,23 @@
 <template name="_tabsHeader">
-  {{#ionHeaderBar class="bar-positive"}}
-    <!-- {{>ionNavBackButton path="/"}} -->
-    <h1 class="title">{{tabTitle}}</h1>
-    {{#if isVisitor }}
-    	Visitor
-    {{else}}
-    	Welcome
-    {{/if}}
-  {{/ionHeaderBar}}
+
+{{> ionNavBar}}
 
   {{#contentFor "headerButtonLeft"}}
-    
+    {{> ionNavBackButton path="/"}}
   {{/contentFor}}
 
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">{{curTabTitle}}</h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+      
+   {{/contentFor}}
+ <!-- <button class="button button-clear" onclick="location.href = '/dposts/{{_id}}'">Edit</button> --> 
+  
   <!-- {{#ionHeaderBar class="bar-positive"}}
-    {{>ionNavBackButton path="index"}}
+    {{>ionNavBackButton}}
     <h1 class="title">Tabs</h1>
-    {{> loginButtons align="right"}}
   {{/ionHeaderBar}} -->
 
 </template>

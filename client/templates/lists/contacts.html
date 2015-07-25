@@ -1,0 +1,33 @@
+<template name="contacts">
+
+  {{#ionView}}
+    {{#ionContent}}
+
+      {{#ionList}}
+
+        {{#each sfContacts}}
+
+          {{#ionItem buttonRight=true avatar=true}}
+            <!-- {{#ionItem path = " {{_id}" }} -->
+            <a href='/users/{{_id}}'>
+
+            <!-- {{#with attachImgSrc}}
+            <img src="{{this.url}}" alt="{{this.name}}" width=60>
+            {{/with}} -->
+
+            <!-- <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg"> -->
+            </a>
+            {{#each emails}}
+            <h2>{{address}}</h2>
+            {{/each}}
+            Member since {{createdAt}}
+            <!-- <button class="button button-positive">{{> ionIcon icon="ios-telephone"}}</button> -->
+          {{/ionItem}}
+
+        {{/each}}
+
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>
+

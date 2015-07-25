@@ -1,10 +1,10 @@
 <template name="tabsLayout">
   {{#ionBody}}
-  <!-- {{> ionNavBar}} -->
   {{> _tabsHeader}}
-    {{#ionView}}
+  <!-- {{> ionNavBar}} -->
+    {{#ionNavView}}
       {{> yield}}
       {{> _tabs}}
-    {{/ionView}}
+    {{/ionNavView}}
   {{/ionBody}}
 </template>

@@ -1,14 +1,31 @@
 
   Template.showPost.onRendered(function () {
- //  	console.log('record postTitle', this.title);
-	// Session.set('postTitle', this.title);
+  	 console.log('record postTitle', this, Session.get('tabTitle'));
+     if (typeof(this.data.readPost) != 'undefined') {
+        Session.set('tabTitle', this.data.readPost.title);
+     }
+	   
   });
+
+  Template.showPost.events({
+  'click [data-action=editPost]': function (event, template) {
+   var id = Router.current().params.id;
+   console.log("Click:", id);
+   // Router.go('postDetails', {_id: id});
+    Session.set('postEditMode', true);
+  }
+});
 
 Template.layout.helpers ({
     postTitle: function () {
     	console.log('set postTitle to page header');
     	return Session.get('postTitle');
-    }
+    },
+
+    isVisitor: function () {
+      console.log('check visitor');
+      return (null === Meteor.userId());
+    },
 });
 
   Template.showPost.helpers({
@@ -24,8 +41,8 @@ Template.layout.helpers ({
 
 Template.layout.events({
   'click [data-action=editPost]': function (event, template) {
-   // var id = Router.current().params.id;
-   // console.log("Click", id);
+   var id = Router.current().params.id;
+   console.log("Click: ", id);
    // Router.go('postDetails', {_id: id});
    	Session.set('postEditMode', true);
   }

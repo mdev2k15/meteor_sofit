@@ -1,5 +1,5 @@
 Template._tabsHeader.helpers ({
-    tabTitle: function () {
+    curTabTitle: function () {
     	return Session.get('tabTitle');
     },
 
@@ -10,5 +10,5 @@ Template._tabsHeader.helpers ({
 });  
 
 Template._tabsHeader.rendered = function () {
-  // console.log('header is rendered');
+  console.log('header is rendered');
 };

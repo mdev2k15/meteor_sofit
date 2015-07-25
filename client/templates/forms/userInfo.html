@@ -1,16 +1,38 @@
 <template name="userInfo">
-  {{#contentFor "headerButtonLeft"}}
+<!--   {{#contentFor "headerButtonLeft"}}
     {{>ionNavBackButton path="index"}}
-  {{/contentFor}}
+  {{/contentFor}} -->
 
-  {{#contentFor "headerTitle"}}
+<!--   {{#contentFor "headerTitle"}}
     <h1 class="title">User Info</h1>
-  {{/contentFor}}
+  {{/contentFor}} -->
 
   {{#ionView}}
     {{#ionContent}}
-      <div>Name: {{firstName}} {{lastName}}</div>
-      <div>Email: {{email}}</div>
+
+    {{#if isUserInfoEdit}}
+          {{#autoForm collection="certainUser" id="editCurUserInfo" doc=certainUser type="update" buttonContent="Update Post"}}
+            {{> afQuickField name="title"}}
+            {{> afQuickField name="body"}}
+            {{> afQuickField name="picture"}}
+          <div class="button-bar">
+            <button type="submit" class="button icon ion-android-send button-positive">Update</button>
+          </div>
+          {{/autoForm}}      
+      {{else}}
+        {{#with certainUser}}
+          {{#ionItem}}
+          {{displayName}}
+          <p>{{profile.phone}}, {{profile.location}}</p>
+            {{#each emails}}
+              <p>{{address}}</p>
+            {{/each}}
+          {{/ionItem}}
+        {{/with}}
+        <div class="padding">
+          <button class="button button-positive button-block" data-action="logout">Log Out</button>
+        </div>
+      {{/if}}
     {{/ionContent}}
   {{/ionView}}
 </template>

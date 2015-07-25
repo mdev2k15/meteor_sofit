@@ -10,6 +10,15 @@ Meteor.publish("images", function() {
   return Images.find();
 });
 
+Meteor.publish("allUserData", function () {
+    return Meteor.users.find({});
+});
+
+Meteor.publish("userData", function (userId) {
+    return Meteor.users.find({_id: userId});// ,{fields: {'other': 1, 'things': 1}}
+});
+
+
 // // Server
 // Meteor.publishComposite('topTenPosts', {
 //     find: function() {

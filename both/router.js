@@ -53,6 +53,26 @@ Router.map(function() {
     }
   });
 
+  this.route('tabs.three', {
+      layoutTemplate: 'tabsLayout',
+      path: '/tabs/three', // layoutTemplate: 'tabsLayout',
+      waitOn: function () {
+        // return one handle, a function, or an array
+        
+          Meteor.subscribe('allUserData');
+
+          return [];
+      },
+      data: function () {
+        return {
+          sfContacts: Meteor.users.find({})
+        };
+      },
+      action: function () {
+        this.render('tabsThree');
+      }
+    });
+
   // this.route('sfNewUser', {path: '/'});
   this.route('actionSheet');
   this.route('backdrop');
@@ -78,7 +98,7 @@ Router.map(function() {
   this.route('slideBox');
   // this.route('tabs.one', {path: '/tabs/one', layoutTemplate: 'tabsLayout'});
   this.route('tabs.two', {path: '/tabs/two', layoutTemplate: 'tabsLayout'});
-  this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
+  // this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
   this.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
   this.route('userAccounts');
 
@@ -88,11 +108,25 @@ Router.map(function() {
 
   this.route('/users/:_id', {
     name: 'userInfo',
-    data: function() { return SofitUsers.findOne(this.params._id); },
-    //layoutTemplate: 'tabsLayout'
-});
+    layoutTemplate: 'tabsLayout',
+    waitOn: function () {
+      // return one handle, a function, or an array
+      
+        Meteor.subscribe('userData', this.params._id);
 
-  Router.route('/dposts/:_id', {
+        return [];
+    },
+    data: function () {
+      return {
+        certainUser: Meteor.users.findOne({})
+      };
+    },
+    // action: function () {
+    //   this.render('tabsThree');
+    // }
+  });
+
+  this.route('/dposts/:_id', {
     name: 'postDetails',
     waitOn: function () {
       // return one handle, a function, or an array
@@ -112,8 +146,9 @@ Router.map(function() {
     // }
   });
 
-  Router.route('/sposts/:_id', {
+  this.route('/sposts/:_id', {
     name: 'showPost',
+    layoutTemplate: 'tabsLayout',
     waitOn: function () {
       // return one handle, a function, or an array
       

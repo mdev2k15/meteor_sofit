@@ -1,7 +1,18 @@
 <template name="tabsThree">
+
+{{#contentFor "headerTitle"}}
+    <h1 class="title">SoFit - Contacts</h1>
+{{/contentFor}}
+
 	{{#ionView}}
   	{{#ionContent class="padding"}}
-  	Contacts
+  		{{#if currentUser}}
+    		{{> contacts }}
+    	{{else}}
+    		Log in to see Contacts
+    	{{/if}}
+
+    	
     	
   	{{/ionContent}}
 	{{/ionView}}

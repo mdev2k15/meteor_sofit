@@ -1,17 +1,30 @@
 <template name="tabsOne">
 
+	{{#contentFor "headerButtonLeft"}}
+	    <button class="button button-clear pull-left button-positive" data-ion-modal="search">
+	      {{> ionIcon icon='ios-search'}}
+	    </button>
+  	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+    	<h1 class="title">SoFit - Posts</h1>
+  	{{/contentFor}}
+
+	{{#contentFor "headerButtonRight"}}
+		{{#if isVisitor}}
+			<button class="button button-clear pull-right button-positive">
+      			{{> ionIcon icon='ion-help-circled'}}
+	    	</button>
+		{{else}}
+	  		<button class="button button-clear pull-right button-positive" onclick="location.href = '/newPost'">
+	      		{{> ionIcon icon='ios-plus-empty'}}
+	    	</button>
+		
+		{{/if}}
+	{{/contentFor}}
   {{#ionView}}
   	
   	{{#ionContent}}
-    <div class="bar bar-header item-input-inset">
-  		<label class="item-input-wrapper">
-    	<i class="icon ion-ios-search placeholder-icon"></i>
-    	<input type="search" placeholder="Search Post">
-  		</label>
-  		{{#if currentUser}}		
-  			<button class="button button-clear" onclick="location.href = '/newPost'"> NewPost </button>
-  		{{/if}}
-  	</div>
   	<!-- <div>
   		<label class="item-input-wrapper">
     	<i class="icon ion-ios-search placeholder-icon"></i>
