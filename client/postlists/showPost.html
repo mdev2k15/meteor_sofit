@@ -8,6 +8,10 @@
       <h1 class="title">{{postTitle}}</h1>
     {{/contentFor}} -->
 
+    {{#contentFor "headerTitle"}}
+      <h1 class="title">SoFit - Details </h1>
+    {{/contentFor}}
+
     {{#contentFor "headerButtonRight"}}
       {{#if isVisitor}}
       {{else}}
@@ -31,18 +35,13 @@
           </div>
           {{/autoForm}}      
         {{else}}
-          <div>
-              <b><i> What Happened: </i></b>
-              </div>
+          {{#ionItem}}
+              <p><h2> ---=== {{title}} ===--- </h2></p>
               {{#with attachImgSrc}}
                 <img src="{{this.url}}" alt="{{this.name}}">
               {{/with}}
-
-              <div>
-                <b><i>Details:</i></b>
-              </div>
-              {{body}}
-
+              <p>{{body}}</p>
+          {{/ionItem}}   
         {{/if}}
       {{/ionContent}}
       {{> _tabs}}
